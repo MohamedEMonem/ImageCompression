@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Compression Tool</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Image Compression Tool</h1>
+
+    <!-- Upload Area -->
+    <div id="uploadArea" class="upload-area">
+      <p>Drag & Drop your images here</p>
+      <div class="preview"></div>
+    </div>
+
+    <!-- Upload Button -->
+    <button id="uploadButton" class="btn">Upload Images</button>
+    <input id="imageInput" type="file" multiple accept="image/*" style="display: none;" />
+
+    <!-- Compress Button -->
+    <button id="compressButton" class="btn hidden" disabled>Compress Images</button>
+
+    <!-- Comparison Area -->
+    <div id="comparisonArea" class="hidden">
+      <h2>Select the Best Image</h2>
+      <div id="gallery" class="image-gallery"></div>
+    </div>
+
+    <!-- Download Button -->
+    <button id="downloadButton" class="btn hidden">Download Selected Images</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
