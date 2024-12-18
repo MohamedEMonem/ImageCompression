@@ -92,7 +92,6 @@ If you'd like to contribute to this project, feel free to fork the repository, c
 ## License
 
 This project is open-source and available under the [MIT License](LICENSE).
-```
 
 ### Explanation of Sections:
 
@@ -106,9 +105,3 @@ This project is open-source and available under the [MIT License](LICENSE).
 6. **Contributing**: Explains how others can contribute to the project.
 7. **License**: Provides information about the open-source license.
 
-### To-Do:
-
-- Replace the **GitHub repository URL** (`https://github.com/your-username/image-compression-tool.git`) with your actual URL if you host the project on GitHub.
-- If you use a specific license (e.g., MIT), include the `LICENSE` file in your project folder.
-
-This README provides all the basic instructions to set up and serve your project. Let me know if you need further modifications!
