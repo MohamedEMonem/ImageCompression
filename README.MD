@@ -39,7 +39,7 @@ The project consists of:
 
 ## Running the Project Locally
 
-## live Demo for fast access
+### live Demo for fast access
 
 1. with the following link you can acces the project [live Demo](https://mohamedemonem.github.io/ImageCompression/)
 
