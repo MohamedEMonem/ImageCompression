@@ -68,7 +68,7 @@ For Python 2:
 python -m SimpleHTTPServer
 ```
 
-3. Open your web browser and go to `http://localhost:[yourportnumber]`. The project will be accessible there.
+3. Open your web browser and go to `http://localhost:{yourportnumber}`. The project will be accessible there.
 
 ## How to Use
 
