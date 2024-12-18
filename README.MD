@@ -45,7 +45,7 @@ The project consists of:
 
 ### Using Live Server (VS Code extension):
 1. Open the project folder in [VS Code](https://code.visualstudio.com/).
-2. Install the [**Live Server**]() extension (if not installed already).
+2. Install the [**Live Server**](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension (if not installed already).
 3. Right-click on the `index.html` file and select **Open with Live Server**.
 4. Your project will open in your default web browser and will auto-refresh as you make changes.
 
