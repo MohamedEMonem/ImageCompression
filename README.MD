@@ -89,19 +89,3 @@ python -m SimpleHTTPServer
 
 If you'd like to contribute to this project, feel free to fork the repository, create a new branch, and submit a pull request with your improvements or fixes.
 
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
-### Explanation of Sections:
-
-1. **Project Overview**: Provides a brief explanation of the project and its features.
-2. **Prerequisites**: Lists what is needed to run the project.
-3. **Installation**: Explains how to clone the repository and install the project locally.
-4. **Running Locally**: Provides two options for running the project locally:
-   - Using **VS Code's Live Server** extension.
-   - Using **Python's built-in HTTP server**.
-5. **How to Use**: Step-by-step instructions for using the tool to upload, compress, compare, and download images.
-6. **Contributing**: Explains how others can contribute to the project.
-7. **License**: Provides information about the open-source license.
-
