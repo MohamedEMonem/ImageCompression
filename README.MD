@@ -1,5 +1,3 @@
-Here's a basic **README.md** file for your image compression tool project, including instructions for serving the project locally:
-
 ```markdown
 # Image Compression Tool
 
@@ -25,13 +23,13 @@ Before serving the project, ensure you have the following installed:
 ### 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/image-compression-tool.git
+git clone https://github.com/MohamedEMonem/ImageCompression.git
 ```
 
 ### 2. Navigate to the project directory:
 
 ```bash
-cd image-compression-tool
+cd ImageCompression
 ```
 
 ### 3. Ensure the project files are in place:
@@ -41,6 +39,10 @@ The project consists of:
 - `app.js` – The JavaScript file for handling the logic of image upload, compression, and download.
 
 ## Running the Project Locally
+
+## live Demo for fast access
+
+1. with the following link you can acces the project [live Demo](https://mohamedemonem.github.io/ImageCompression/)
 
 ### Using Live Server (VS Code extension):
 1. Open the project folder in [VS Code](https://code.visualstudio.com/).
@@ -67,7 +69,7 @@ For Python 2:
 python -m SimpleHTTPServer
 ```
 
-3. Open your web browser and go to `http://localhost:8000`. The project will be accessible there.
+3. Open your web browser and go to `http://localhost:[yourportnumber]`. The project will be accessible there.
 
 ## How to Use
 
