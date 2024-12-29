@@ -7,44 +7,43 @@ const downloadButton = document.getElementById("downloadButton");
 
 let selectedImageFiles = [];
 
-uploadArea.addEventListener("dragover", (e) => {
+const addEventListeners = () => {
+  uploadArea.addEventListener("dragover", handleDragOver);
+  uploadArea.addEventListener("dragleave", handleDragLeave);
+  uploadArea.addEventListener("drop", handleDrop);
+  document.getElementById("uploadButton").addEventListener("click", () => imageInput.click());
+  imageInput.addEventListener("change", (e) => handleFiles(e.target.files));
+  compressButton.addEventListener("click", compressImages);
+};
+
+const handleDragOver = (e) => {
   e.preventDefault();
   uploadArea.classList.add("hover");
-});
+};
 
-uploadArea.addEventListener("dragleave", () => {
+const handleDragLeave = () => {
   uploadArea.classList.remove("hover");
-});
+};
 
-uploadArea.addEventListener("drop", (e) => {
+const handleDrop = (e) => {
   e.preventDefault();
   uploadArea.classList.remove("hover");
   handleFiles(e.dataTransfer.files);
-});
+};
 
-document.getElementById("uploadButton").addEventListener("click", () => {
-  imageInput.click();
-});
-
-imageInput.addEventListener("change", (e) => {
-  handleFiles(e.target.files);
-});
-
-function handleFiles(files) {
-  const validFiles = Array.from(files).filter((file) =>
-    file.type.startsWith("image/")
-  );
-
+const handleFiles = (files) => {
+  const validFiles = Array.from(files).filter((file) => file.type.startsWith("image/"));
   selectedImageFiles = validFiles;
   showPreview(validFiles);
+  toggleCompressButton(validFiles.length > 0);
+};
 
-  if (validFiles.length > 0) {
-    compressButton.disabled = false;
-    compressButton.classList.remove("hidden");
-  }
-}
+const toggleCompressButton = (enable) => {
+  compressButton.disabled = !enable;
+  compressButton.classList.toggle("hidden", !enable);
+};
 
-function showPreview(files) {
+const showPreview = (files) => {
   const previewArea = document.createElement("div");
   previewArea.classList.add("preview");
 
@@ -57,11 +56,10 @@ function showPreview(files) {
 
   uploadArea.innerHTML = "<p>Drag & Drop your images here</p>";
   uploadArea.appendChild(previewArea);
-}
+};
 
-compressButton.addEventListener("click", async () => {
+const compressImages = async () => {
   if (selectedImageFiles.length === 0) return;
-
   gallery.innerHTML = "";
 
   for (const file of selectedImageFiles) {
@@ -73,20 +71,15 @@ compressButton.addEventListener("click", async () => {
       alert(`${file.name} is below 2MB. Compression is not needed.`);
     }
   }
-});
+};
 
-async function compressImage(file) {
+const compressImage = async (file) => {
   const ratios = [0.25, 0.5, 0.75];
-  const compressedImages = [];
+  const compressedImages = await Promise.all(ratios.map((ratio) => compressImageBlob(file, ratio)));
+  return compressedImages.map((blob) => URL.createObjectURL(blob));
+};
 
-  for (const ratio of ratios) {
-    const compressedBlob = await compressImageBlob(file, ratio);
-    compressedImages.push(URL.createObjectURL(compressedBlob));
-  }
-  return compressedImages;
-}
-
-function compressImageBlob(file, quality) {
+const compressImageBlob = (file, quality) => {
   return new Promise((resolve) => {
     const reader = new FileReader();
     reader.onload = (event) => {
@@ -103,9 +96,9 @@ function compressImageBlob(file, quality) {
     };
     reader.readAsDataURL(file);
   });
-}
+};
 
-function displayComparison(fileName, original, compressedImages) {
+const displayComparison = (fileName, original, compressedImages) => {
   const wrapper = document.createElement("div");
   wrapper.classList.add("comparison-wrapper");
 
@@ -134,14 +127,12 @@ function displayComparison(fileName, original, compressedImages) {
   });
 
   gallery.appendChild(wrapper);
-
   comparisonArea.classList.remove("hidden");
   downloadButton.classList.remove("hidden");
-}
+};
 
-function selectImage(img) {
-  const images = document.querySelectorAll(".comparison-wrapper img");
-  images.forEach((image) => image.classList.remove("selected"));
+const selectImage = (img) => {
+  document.querySelectorAll(".comparison-wrapper img").forEach((image) => image.classList.remove("selected"));
   img.classList.add("selected");
 
   downloadButton.onclick = () => {
@@ -150,5 +141,7 @@ function selectImage(img) {
     link.download = "compressed-image.jpg";
     link.click();
   };
-}
+};
+
+addEventListeners();
 
