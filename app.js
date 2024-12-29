@@ -7,7 +7,6 @@ const downloadButton = document.getElementById("downloadButton");
 
 let selectedImageFiles = [];
 
-// Drag-and-Drop Events
 uploadArea.addEventListener("dragover", (e) => {
   e.preventDefault();
   uploadArea.classList.add("hover");
@@ -23,7 +22,6 @@ uploadArea.addEventListener("drop", (e) => {
   handleFiles(e.dataTransfer.files);
 });
 
-// Upload Button Click Event
 document.getElementById("uploadButton").addEventListener("click", () => {
   imageInput.click();
 });
@@ -32,7 +30,6 @@ imageInput.addEventListener("change", (e) => {
   handleFiles(e.target.files);
 });
 
-// Handle Files
 function handleFiles(files) {
   const validFiles = Array.from(files).filter((file) =>
     file.type.startsWith("image/")
@@ -47,7 +44,6 @@ function handleFiles(files) {
   }
 }
 
-// Show Preview in Drag-and-Drop Box
 function showPreview(files) {
   const previewArea = document.createElement("div");
   previewArea.classList.add("preview");
@@ -59,16 +55,14 @@ function showPreview(files) {
     previewArea.appendChild(img);
   });
 
-  // Clear previous previews and add new ones
   uploadArea.innerHTML = "<p>Drag & Drop your images here</p>";
   uploadArea.appendChild(previewArea);
 }
 
-// Compress Button Click Event
 compressButton.addEventListener("click", async () => {
   if (selectedImageFiles.length === 0) return;
 
-  gallery.innerHTML = ""; // Clear the gallery for new results
+  gallery.innerHTML = "";
 
   for (const file of selectedImageFiles) {
     if (file.size > 2 * 1024 * 1024) {
@@ -81,7 +75,6 @@ compressButton.addEventListener("click", async () => {
   }
 });
 
-// Image Compression
 async function compressImage(file) {
   const ratios = [0.25, 0.5, 0.75];
   const compressedImages = [];
@@ -101,8 +94,8 @@ function compressImageBlob(file, quality) {
       img.src = event.target.result;
       img.onload = () => {
         const canvas = document.createElement("canvas");
-        canvas.width = img.width * quality;
-        canvas.height = img.height * quality;
+        canvas.width = img.width;
+        canvas.height = img.height;
         const ctx = canvas.getContext("2d");
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         canvas.toBlob((blob) => resolve(blob), "image/jpeg", quality);
@@ -112,7 +105,6 @@ function compressImageBlob(file, quality) {
   });
 }
 
-// Display Comparison
 function displayComparison(fileName, original, compressedImages) {
   const wrapper = document.createElement("div");
   wrapper.classList.add("comparison-wrapper");
@@ -147,7 +139,6 @@ function displayComparison(fileName, original, compressedImages) {
   downloadButton.classList.remove("hidden");
 }
 
-// Highlight selected image
 function selectImage(img) {
   const images = document.querySelectorAll(".comparison-wrapper img");
   images.forEach((image) => image.classList.remove("selected"));
