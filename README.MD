@@ -1,6 +1,6 @@
 # Image Compression Tool
 
-A simple web application that allows users to upload an image, compress it using different compression ratios (25%, 50%, and 75%), and choose the best compressed image to download. This tool provides an easy way to compare the original and compressed images before downloading the preferred version.
+A simple web application that allows users to upload an image, compress it using different compression ratios (25%, 50%, and 75%), and choose the best-compressed image to download. This tool provides an easy way to compare the original and compressed images before downloading the preferred version.
 
 ## Features
 
@@ -39,9 +39,9 @@ The project consists of:
 
 ## Running the Project Locally
 
-### live Demo for fast access
+### Live Demo for fast access
 
-1. with the following link you can acces the project [live Demo](https://mohamedemonem.github.io/ImageCompression/)
+1. With the following link, you can access the project [Live Demo](https://mohamedemonem.github.io/ImageCompression/)
 
 ### Using Live Server (VS Code extension):
 1. Open the project folder in [VS Code](https://code.visualstudio.com/).

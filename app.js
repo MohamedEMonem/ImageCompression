@@ -161,18 +161,3 @@ function selectImage(img) {
   };
 }
 
-
-// Select Image
-function selectImage(img) {
-  const images = document.querySelectorAll(".image-gallery img");
-  images.forEach((image) => image.classList.remove("selected"));
-  img.classList.add("selected");
-
-  downloadButton.onclick = () => {
-    const link = document.createElement("a");
-    link.href = img.src;
-    link.download = "compressed-image.jpg";
-    link.click();
-  };
-}
-

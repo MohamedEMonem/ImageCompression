@@ -1,7 +1,8 @@
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f9;
+  font-family: 'Roboto', sans-serif;
+  background: #1e1e2f;
+  color: #f4f4f9;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -17,20 +18,23 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 20px;
+  color: #ff6f61;
 }
 
 /* Upload Area Styles */
 .upload-area {
   padding: 30px;
-  border: 2px dashed #ccc;
+  border: 2px dashed #ff6f61;
   text-align: center;
   margin-bottom: 20px;
   cursor: pointer;
+  background: #2e2e3e;
+  border-radius: 10px;
 }
 
 .upload-area p {
   font-size: 16px;
-  color: #555;
+  color: #f4f4f9;
 }
 
 .upload-area .preview {
@@ -57,25 +61,22 @@ h1 {
 .image-gallery img {
   max-width: 100%;
   height: auto;
-  border: 3px solid #ccc;
+  border: 3px solid #ff6f61;
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.image-gallery img:hover {
-  transform: scale(1.1);
-}
-
+.image-gallery img:hover,
 .image-gallery img.selected {
-  border-color: #007bff;
   transform: scale(1.1);
+  border-color: #ff6f61;
 }
 
 .image-gallery p {
   font-size: 16px;
   font-weight: bold;
-  color: #333;
+  color: #f4f4f9;
   margin-top: 5px;
 }
 
@@ -84,12 +85,17 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
-  background-color: #007bff;
+  background-color: #ff6f61;
   color: white;
   border-radius: 5px;
   cursor: pointer;
   display: block;
   margin: 10px auto;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e65c50;
 }
 
 button:disabled {
@@ -101,14 +107,6 @@ button.btn {
   width: 200px;
 }
 
-button#downloadButton {
-  background-color: #007bff;
-}
-
-button#downloadButton:disabled {
-  background-color: #ccc;
-}
-
 /* Comparison Gallery Styles */
 .comparison-wrapper {
   margin: 20px 0;
@@ -117,6 +115,7 @@ button#downloadButton:disabled {
 .comparison-wrapper h3 {
   text-align: center;
   margin-bottom: 10px;
+  color: #ff6f61;
 }
 
 .comparison-wrapper .image-wrapper {
@@ -128,7 +127,7 @@ button#downloadButton:disabled {
 .comparison-wrapper .image-wrapper img {
   width: 200px;
   height: auto;
-  border: 2px solid #ccc;
+  border: 2px solid #ff6f61;
   border-radius: 5px;
   object-fit: contain;
   margin-bottom: 5px;
@@ -137,21 +136,21 @@ button#downloadButton:disabled {
 }
 
 .comparison-wrapper .image-wrapper img.selected {
-  border-color: #007bff;
+  border-color: #ff6f61;
   transform: scale(1.1);
 }
 
 .comparison-wrapper .image-wrapper p {
   font-size: 16px;
   font-weight: bold;
-  color: #333;
+  color: #f4f4f9;
 }
 
 /* Preview Image Styles */
 .upload-area .preview img {
   max-width: 150px;
   max-height: 150px;
-  border: 2px solid #ccc;
+  border: 2px solid #ff6f61;
   border-radius: 5px;
   object-fit: cover;
   transition: transform 0.2s;
